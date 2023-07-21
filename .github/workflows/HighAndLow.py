@@ -2,16 +2,23 @@ import random
 def High_Low(level, low, high):
     number = random.randint(low, high)
     print(f"Level {level}: Guess a number between {low} and {high}")
-    
+    guesses = 1
+    #number_loop
     while True:
-        guess = int(input("Enter your guess: "))
+        guess = low + (high-low)//2
+        answer = int(input("Enter your guess: "))
 
-        if guess < number:
-            print("Try guessing higher.")
-        elif guess > number:
-            print("Try guessing lower.")
+        if answer < guess:
+            print("Please enter higher number.")
+            low = guess + 1
+        elif answer > guess:
+            print("Please enter lower number.")
+            high = guess - 1
+        elif answee == guess: 
+            print("Good job! you've done it right^^")
+            break
         else:
-            print("WOW! You guessed it right^^")
+            print("(Invalid option!)")
             break
 
 # levels
@@ -22,7 +29,7 @@ levels = {
     4: (1, 1000)
 }
 
-# choose
+# choose_level
 Level = int(input("Choose a level (1-4): "))
 level_range = levels.get(Level)
 if isinstance(level_range, tuple):
